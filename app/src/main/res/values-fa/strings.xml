@@ -49,6 +49,9 @@
     <string name="status_not_enrolled">در تنظیمات گوشی ثبت نشده</string>
     <string name="status_unsupported">در این گوشی موجود نیست</string>
     <string name="status_face_unsupported">این گوشی اجازه‌ی استفاده از چهره را به اپ‌ها نمی‌دهد</string>
+    <string name="status_face_unconfirmed">این گوشی چهره را به اپ‌ها اعلام نمی‌کند. برای امتحان، کلید پایین را روشن کنید.</string>
+    <string name="status_face_forced">اول پنجره‌ی سیستم امتحان می‌شود. اگر فقط اثر انگشت خواست، این گوشی چهره را به اپ‌ها نمی‌دهد.</string>
+    <string name="force_face">با این حال چهره را از پنجره‌ی سیستم امتحان کن</string>
     <string name="move_up">بالا بردن</string>
     <string name="move_down">پایین بردن</string>
     <string name="open_biometric_settings">ثبت چهره / اثر انگشت در تنظیمات گوشی</string>

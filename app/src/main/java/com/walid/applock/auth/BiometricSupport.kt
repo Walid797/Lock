@@ -8,7 +8,14 @@ import androidx.biometric.BiometricManager
 import androidx.biometric.BiometricManager.Authenticators.BIOMETRIC_STRONG
 import androidx.biometric.BiometricManager.Authenticators.BIOMETRIC_WEAK
 
-enum class MethodStatus { AVAILABLE, NOT_ENROLLED, NOT_SUPPORTED }
+enum class MethodStatus {
+    AVAILABLE,
+    NOT_ENROLLED,
+    NOT_SUPPORTED,
+
+    /** Phone does not announce face hardware, but its system prompt may still offer face. */
+    UNCONFIRMED,
+}
 
 object BiometricSupport {
 
@@ -18,21 +25,27 @@ object BiometricSupport {
         Method.CREDENTIAL -> MethodStatus.AVAILABLE
     }
 
-    fun isAvailable(context: Context, method: Method) =
-        status(context, method) == MethodStatus.AVAILABLE
+    /** [forceFace]: the user chose to try the system prompt even though face is unconfirmed. */
+    fun isAvailable(context: Context, method: Method, forceFace: Boolean = false): Boolean {
+        val status = status(context, method)
+        return status == MethodStatus.AVAILABLE ||
+            (method == Method.FACE && forceFace && status == MethodStatus.UNCONFIRMED)
+    }
 
     /**
      * The phone's own face unlock is only reachable through the system biometric
-     * prompt, and only on phones that declare face hardware to apps (Android 10+).
+     * prompt. Phones that declare face hardware are certain; some (e.g. Huawei)
+     * do not declare it yet still show face in the prompt, so those are UNCONFIRMED.
      */
     private fun faceStatus(context: Context): MethodStatus {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.Q) return MethodStatus.NOT_SUPPORTED
-        if (!context.packageManager.hasSystemFeature(PackageManager.FEATURE_FACE)) {
-            return MethodStatus.NOT_SUPPORTED
-        }
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P) return MethodStatus.NOT_SUPPORTED
+        val declared = Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q &&
+            context.packageManager.hasSystemFeature(PackageManager.FEATURE_FACE)
         return when (BiometricManager.from(context).canAuthenticate(BIOMETRIC_WEAK)) {
-            BiometricManager.BIOMETRIC_SUCCESS -> MethodStatus.AVAILABLE
-            BiometricManager.BIOMETRIC_ERROR_NONE_ENROLLED -> MethodStatus.NOT_ENROLLED
+            BiometricManager.BIOMETRIC_SUCCESS ->
+                if (declared) MethodStatus.AVAILABLE else MethodStatus.UNCONFIRMED
+            BiometricManager.BIOMETRIC_ERROR_NONE_ENROLLED ->
+                if (declared) MethodStatus.NOT_ENROLLED else MethodStatus.NOT_SUPPORTED
             else -> MethodStatus.NOT_SUPPORTED
         }
     }

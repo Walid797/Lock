@@ -175,7 +175,7 @@ class LockActivity : FragmentActivity() {
         cancelRunningStep()
         message = ""
         lockoutUntil = repo.lockoutUntil
-        val c = UnlockChain(repo.enabledOrder()) { BiometricSupport.isAvailable(this, it) }
+        val c = UnlockChain(repo.enabledOrder()) { BiometricSupport.isAvailable(this, it, repo.forceFace) }
         chain = c
         hasBiometricSteps = c.steps.size > 1
         scheduleStep()

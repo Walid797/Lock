@@ -53,6 +53,7 @@ fun SettingsScreen(
     val context = LocalContext.current
     var order by remember { mutableStateOf(repo.methodOrder) }
     var enabled by remember { mutableStateOf(order.associateWith(repo::isEnabled)) }
+    var forceFace by remember { mutableStateOf(repo.forceFace) }
 
     Column(modifier.fillMaxSize().verticalScroll(rememberScrollState()).padding(16.dp)) {
         Text(stringResource(R.string.priority_title), style = MaterialTheme.typography.titleMedium)
@@ -62,6 +63,7 @@ fun SettingsScreen(
         order.forEachIndexed { index, method ->
             val status = BiometricSupport.status(context, method)
             Card(Modifier.fillMaxWidth().padding(vertical = 4.dp)) {
+              Column {
                 Row(Modifier.padding(12.dp), verticalAlignment = Alignment.CenterVertically) {
                     Text("${index + 1}", style = MaterialTheme.typography.titleLarge)
                     Spacer(Modifier.width(12.dp))
@@ -77,10 +79,12 @@ fun SettingsScreen(
                                     MethodStatus.NOT_ENROLLED -> R.string.status_not_enrolled
                                     MethodStatus.NOT_SUPPORTED ->
                                         if (method == Method.FACE) R.string.status_face_unsupported else R.string.status_unsupported
+                                    MethodStatus.UNCONFIRMED ->
+                                        if (forceFace) R.string.status_face_forced else R.string.status_face_unconfirmed
                                 },
                             ),
                             style = MaterialTheme.typography.bodySmall,
-                            color = if (status == MethodStatus.AVAILABLE) MaterialTheme.colorScheme.primary
+                            color = if (status == MethodStatus.AVAILABLE || (status == MethodStatus.UNCONFIRMED && forceFace)) MaterialTheme.colorScheme.primary
                             else MaterialTheme.colorScheme.error,
                         )
                     }
@@ -106,6 +110,26 @@ fun SettingsScreen(
                         },
                     )
                 }
+                if (status == MethodStatus.UNCONFIRMED) {
+                    Row(
+                        Modifier.padding(start = 12.dp, end = 12.dp, bottom = 12.dp),
+                        verticalAlignment = Alignment.CenterVertically,
+                    ) {
+                        Text(
+                            stringResource(R.string.force_face),
+                            Modifier.weight(1f),
+                            style = MaterialTheme.typography.bodyMedium,
+                        )
+                        Switch(
+                            checked = forceFace,
+                            onCheckedChange = {
+                                repo.forceFace = it
+                                forceFace = it
+                            },
+                        )
+                    }
+                }
+              }
             }
         }
         Card(Modifier.fillMaxWidth().padding(vertical = 4.dp)) {

@@ -24,6 +24,11 @@ class LockRepository(context: Context) {
     fun setEnabled(method: Method, enabled: Boolean) =
         prefs.edit().putBoolean(KEY_ENABLED + method.name, enabled).apply()
 
+    /** Try the system prompt for the face step even if the phone does not announce face unlock. */
+    var forceFace: Boolean
+        get() = prefs.getBoolean(KEY_FORCE_FACE, false)
+        set(value) = prefs.edit().putBoolean(KEY_FORCE_FACE, value).apply()
+
     fun enabledOrder(): List<Method> = methodOrder.filter(::isEnabled)
 
     var failedAttempts: Int
@@ -39,6 +44,7 @@ class LockRepository(context: Context) {
         private const val KEY_LOCKED = "locked"
         private const val KEY_ORDER = "order"
         private const val KEY_ENABLED = "enabled_"
+        private const val KEY_FORCE_FACE = "force_face"
         private const val KEY_FAILS = "fails"
         private const val KEY_LOCKOUT = "lockout"
 

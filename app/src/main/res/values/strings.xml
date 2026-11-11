@@ -49,6 +49,9 @@
     <string name="status_not_enrolled">Not registered in phone settings</string>
     <string name="status_unsupported">Not available on this phone</string>
     <string name="status_face_unsupported">This phone does not let apps use its face unlock</string>
+    <string name="status_face_unconfirmed">This phone does not announce face unlock to apps. Turn on the switch below to test it.</string>
+    <string name="status_face_forced">Will try the system window first. If it only asks for a fingerprint, this phone keeps face unlock to itself.</string>
+    <string name="force_face">Try face through the system window anyway</string>
     <string name="move_up">Move up</string>
     <string name="move_down">Move down</string>
     <string name="open_biometric_settings">Register face / fingerprint in phone settings</string>
