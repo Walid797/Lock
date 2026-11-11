@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">App Lock</string>
+    <string name="accessibility_description">App Lock uses this service only to see which app is opened, so it can show the lock screen over the apps you chose. It does not read screen content and sends nothing off the phone.</string>
+
+    <string name="settings">Settings</string>
+    <string name="back">Back</string>
+    <string name="cancel">Cancel</string>
+    <string name="search">Search apps</string>
+
+    <string name="setup_title">Create your backup lock</string>
+    <string name="setup_body">This PIN or pattern is used whenever face and fingerprint do not work. Do not forget it.</string>
+    <string name="use_pin">Use a PIN</string>
+    <string name="use_pattern">Use a pattern</string>
+    <string name="new_pin">Enter a new PIN (4–8 digits)</string>
+    <string name="confirm_pin">Enter the PIN again</string>
+    <string name="new_pattern">Draw a new pattern (at least 4 dots)</string>
+    <string name="confirm_pattern">Draw the pattern again</string>
+    <string name="mismatch">They did not match. Start again.</string>
+    <string name="pattern_too_short">Join at least 4 dots.</string>
+
+    <string name="service_off_title">App Lock is not active yet</string>
+    <string name="service_off_body">Turn on “App Lock” in Accessibility settings so it can notice when a locked app opens. On Android 13+ you may first need: Settings → Apps → App Lock → ⋮ → Allow restricted settings.</string>
+    <string name="open_accessibility">Open Accessibility settings</string>
+
+    <string name="locked_title">%1$s is locked</string>
+    <string name="step_face">Look at the phone to unlock with face</string>
+    <string name="step_fingerprint">Touch the fingerprint sensor</string>
+    <string name="enter_pin">Enter your PIN</string>
+    <string name="draw_pattern">Draw your pattern</string>
+    <string name="next_method">Use next method</string>
+    <string name="retry_biometrics">Try face / fingerprint again</string>
+    <string name="prompt_face_title">Unlock with face</string>
+    <string name="prompt_fingerprint_title">Unlock with fingerprint</string>
+    <string name="fingerprint_not_recognized">Fingerprint not recognized. Try again.</string>
+    <string name="wrong_pin">Wrong PIN</string>
+    <string name="wrong_pattern">Wrong pattern</string>
+    <string name="locked_out">Too many wrong attempts. Wait %1$d s.</string>
+
+    <string name="priority_title">Unlock priority</string>
+    <string name="priority_body">Methods are tried from top to bottom. Use the arrows to change the order and the switch to turn a method off.</string>
+    <string name="method_face">Phone face unlock</string>
+    <string name="method_fingerprint">Fingerprint</string>
+    <string name="method_pin">PIN</string>
+    <string name="method_pattern">Pattern</string>
+    <string name="always_last">Always last, cannot be turned off</string>
+    <string name="status_ok">Ready</string>
+    <string name="status_face_ok">Ready (uses the face registered in phone settings)</string>
+    <string name="status_not_enrolled">Not registered in phone settings</string>
+    <string name="status_unsupported">Not available on this phone</string>
+    <string name="status_face_unsupported">This phone does not let apps use its face unlock</string>
+    <string name="move_up">Move up</string>
+    <string name="move_down">Move down</string>
+    <string name="open_biometric_settings">Register face / fingerprint in phone settings</string>
+    <string name="change_credential">Change PIN / pattern</string>
+    <string name="face_note">Note: the face step uses the phone\'s own face unlock through the Android system window. Android decides what that window accepts; if no face is registered, the phone may ask for a fingerprint there instead. To stop others from turning App Lock off, also lock the Settings app.</string>
+</resources>

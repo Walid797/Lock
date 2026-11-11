@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">اپ لاک</string>
+    <string name="accessibility_description">اپ لاک از این سرویس فقط برای فهمیدن اینکه کدام اپ باز شده استفاده می‌کند تا صفحه‌ی قفل را روی اپ‌های انتخابی شما نشان دهد. محتوای صفحه را نمی‌خواند و هیچ چیزی از گوشی بیرون نمی‌فرستد.</string>
+
+    <string name="settings">تنظیمات</string>
+    <string name="back">برگشت</string>
+    <string name="cancel">لغو</string>
+    <string name="search">جستجوی اپ‌ها</string>
+
+    <string name="setup_title">قفل پشتیبان بسازید</string>
+    <string name="setup_body">هر وقت چهره و اثر انگشت کار نکند از این PIN یا پترن استفاده می‌شود. آن را فراموش نکنید.</string>
+    <string name="use_pin">استفاده از PIN</string>
+    <string name="use_pattern">استفاده از پترن</string>
+    <string name="new_pin">PIN جدید وارد کنید (۴ تا ۸ رقم)</string>
+    <string name="confirm_pin">PIN را دوباره وارد کنید</string>
+    <string name="new_pattern">پترن جدید بکشید (حداقل ۴ نقطه)</string>
+    <string name="confirm_pattern">پترن را دوباره بکشید</string>
+    <string name="mismatch">یکسان نبود. از اول شروع کنید.</string>
+    <string name="pattern_too_short">حداقل ۴ نقطه را وصل کنید.</string>
+
+    <string name="service_off_title">اپ لاک هنوز فعال نیست</string>
+    <string name="service_off_body">«اپ لاک» را در تنظیمات Accessibility (دسترسی‌پذیری) روشن کنید تا باز شدن اپ‌های قفل‌شده را بفهمد. در اندروید ۱۳ به بالا شاید اول لازم باشد: Settings ← Apps ← اپ لاک ← ⋮ ← Allow restricted settings.</string>
+    <string name="open_accessibility">باز کردن تنظیمات دسترسی‌پذیری</string>
+
+    <string name="locked_title">%1$s قفل است</string>
+    <string name="step_face">برای باز شدن با چهره به گوشی نگاه کنید</string>
+    <string name="step_fingerprint">انگشت خود را روی سنسور بگذارید</string>
+    <string name="enter_pin">PIN خود را وارد کنید</string>
+    <string name="draw_pattern">پترن خود را بکشید</string>
+    <string name="next_method">روش بعدی</string>
+    <string name="retry_biometrics">دوباره با چهره / اثر انگشت</string>
+    <string name="prompt_face_title">باز کردن با چهره</string>
+    <string name="prompt_fingerprint_title">باز کردن با اثر انگشت</string>
+    <string name="fingerprint_not_recognized">اثر انگشت شناخته نشد. دوباره امتحان کنید.</string>
+    <string name="wrong_pin">PIN اشتباه است</string>
+    <string name="wrong_pattern">پترن اشتباه است</string>
+    <string name="locked_out">تلاش اشتباه زیاد شد. %1$d ثانیه صبر کنید.</string>
+
+    <string name="priority_title">اولویت باز کردن</string>
+    <string name="priority_body">روش‌ها از بالا به پایین امتحان می‌شوند. با فلش‌ها ترتیب را عوض کنید و با کلید، یک روش را خاموش کنید.</string>
+    <string name="method_face">چهره‌ی گوشی (Face Unlock)</string>
+    <string name="method_fingerprint">اثر انگشت</string>
+    <string name="method_pin">PIN</string>
+    <string name="method_pattern">پترن</string>
+    <string name="always_last">همیشه آخر است و خاموش نمی‌شود</string>
+    <string name="status_ok">آماده</string>
+    <string name="status_face_ok">آماده (از چهره‌ی ثبت‌شده در تنظیمات گوشی استفاده می‌کند)</string>
+    <string name="status_not_enrolled">در تنظیمات گوشی ثبت نشده</string>
+    <string name="status_unsupported">در این گوشی موجود نیست</string>
+    <string name="status_face_unsupported">این گوشی اجازه‌ی استفاده از چهره را به اپ‌ها نمی‌دهد</string>
+    <string name="move_up">بالا بردن</string>
+    <string name="move_down">پایین بردن</string>
+    <string name="open_biometric_settings">ثبت چهره / اثر انگشت در تنظیمات گوشی</string>
+    <string name="change_credential">تغییر PIN / پترن</string>
+    <string name="face_note">توجه: مرحله‌ی چهره از Face Unlock خودِ گوشی و از طریق پنجره‌ی سیستم اندروید استفاده می‌کند. اینکه آن پنجره چه چیزی را قبول کند دست اندروید است؛ اگر چهره‌ای ثبت نباشد ممکن است گوشی همان‌جا اثر انگشت بخواهد. برای اینکه دیگران نتوانند اپ لاک را خاموش کنند، اپ Settings را هم قفل کنید.</string>
+</resources>
